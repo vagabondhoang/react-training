@@ -26,7 +26,14 @@ class Counter extends Component<Props> {
   }
 }
 
+<<<<<<< HEAD
 const mapStateToProps = state => ({ count: state.count.count });
+=======
+const mapStateToProps = state => ({
+  count: state.count.count,
+});
+
+>>>>>>> using reselect with redux
 const mapDispatchToProps = (dispatch: Function) => ({
   increment() {
     dispatch(increment());

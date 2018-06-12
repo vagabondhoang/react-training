@@ -3,7 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from '../HomePage/Home';
 import About from '../AboutPage/About';
+<<<<<<< HEAD:containers/App/App.js
 import Users from '../UsersPage/Users';
+=======
+>>>>>>> using reselect with redux:containers/App/App.js
 
 const App = () => (
   <BrowserRouter>
