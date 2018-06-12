@@ -1,8 +1,17 @@
 import { combineReducers } from 'redux';
-import messageReducer from './message';
 
-const rootReducer = combineReducers({
-  messageReducer,
-});
+import usersById from './usersByIdReducer';
+import postsById from './postsByIdReducer';
+import postListing from './postListingReducer';
+import count from '../containers/Counter/reducer';
 
-export default rootReducer;
+const createReducer = asyncReducers =>
+  combineReducers({
+    usersById,
+    postsById,
+    postListing,
+    count,
+    ...asyncReducers,
+  });
+
+export default createReducer;
