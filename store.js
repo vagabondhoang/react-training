@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers/rootReducer';
 import RECEIVE_DATA from './types/data';
 import getPosts from './fakeData';
-import rootSaga from './rootSaga';
+import rootSaga from './utils/rootSaga';
 
 /* saga middleware */
 const sagaMiddleware = createSagaMiddleware();
@@ -20,7 +20,6 @@ const composeEnhancers =
 const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
 
 const store = createStore(createReducer(), enhancer);
-
 sagaMiddleware.run(rootSaga);
 
 /* inject reducer */

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListPost component should ... 1`] = `
+.c0 {
+  background: green;
+  color: yellow;
+}
+
+<ListPost
+  posts={
+    Array [
+      Object {
+        "title": "title1",
+        "user": Object {
+          "first": "first1",
+          "last": "last1",
+        },
+      },
+    ]
+  }
+>
+  <styled.li
+    title="title1"
+  >
+    <li
+      className="c0"
+      title="title1"
+    >
+      title1 - first1 last1
+    </li>
+  </styled.li>
+</ListPost>
+`;

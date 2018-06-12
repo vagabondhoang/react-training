@@ -8,7 +8,7 @@ type Props = {
   posts: Array<Object>,
 };
 
-const Posts = ({ posts }: Props) => (
+export const PostsByUsers = ({ posts }: Props) => (
   <div>
     <h3>Posts</h3>
     <ul>{posts.map(post => <li key={post.id}>{`${post.title} - ${post.user.first} ${post.user.last}`}</li>)}</ul>
@@ -19,4 +19,4 @@ const mapStateToProps = createStructuredSelector({
   posts: makeGetPosts,
 });
 
-export default connect(mapStateToProps)(Posts);
+export default connect(mapStateToProps)(PostsByUsers);

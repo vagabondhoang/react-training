@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> component should return correctly 1`] = `
+<div>
+  Home
+  <Link
+    replace={false}
+    to="/about"
+  >
+    <styled.button>
+      Go about Page
+    </styled.button>
+  </Link>
+  <Link
+    replace={false}
+    to="/users"
+  >
+    <styled.button>
+      Go Users Page
+    </styled.button>
+  </Link>
+  <h1>
+    Reselect Redux
+  </h1>
+  <Connect(Posts) />
+  <Connect(Counter) />
+  <h2>
+    User 1
+  </h2>
+  <Connect(PostsByUsers)
+    user="user-1"
+  />
+  <h2>
+    User 2
+  </h2>
+  <Connect(PostsByUsers)
+    user="user-2"
+  />
+</div>
+`;

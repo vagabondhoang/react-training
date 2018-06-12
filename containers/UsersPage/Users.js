@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import withReducer from '../../withReducer';
+import withReducer from '../../utils/withReducer';
 import userReducer from './reducer';
 import { getUsersRequest } from './actions';
 
@@ -12,10 +12,11 @@ type Props = {
   data: Object,
 };
 
-class Users extends Component<Props> {
+export class UsersPage extends Component<Props> {
   componentDidMount() {
     this.props.getUsersRequest();
   }
+
   render() {
     const { isFetching, users } = this.props.data;
     return (
@@ -28,7 +29,7 @@ class Users extends Component<Props> {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = (state: Object) => ({
   data: state.userReducer,
 });
 
@@ -36,5 +37,5 @@ export default withReducer('userReducer', userReducer)(
   connect(
     mapStateToProps,
     { getUsersRequest }
-  )(Users)
+  )(UsersPage)
 );

@@ -2,27 +2,24 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import withReducer from '../../withReducer';
+import withReducer from '../../utils/withReducer';
 import messageReducer from './reducer';
-import InputPreview from '../../components/InputPreview';
+import InputPreview from '../../components/InputPreview/index';
 import setMessage from './actions';
 import Button from '../../styles';
 
 type Props = {
   message: string,
-  handleMessageChange: () => void,
+  setMessage: () => void,
 };
 
-class About extends React.Component<Props> {
-  static defaultProps = {
-    message: 'message',
-  };
+export class AboutPage extends React.Component<Props> {
   handleChange = e => {
-    this.props.handleMessageChange(e);
+    this.props.setMessage(e);
   };
 
   render() {
-    const { message } = this.props.message ? this.props.message : 'no value';
+    const { message } = this.props;
 
     return (
       <React.Fragment>
@@ -35,19 +32,13 @@ class About extends React.Component<Props> {
     );
   }
 }
-const mapStateToProps = state => ({
-  message: state.messageReducer ? state.messageReducer : '',
-});
-
-const mapDispatchToProps = (dispatch: Function) => ({
-  handleMessageChange(event) {
-    dispatch(setMessage(event));
-  },
+export const mapStateToProps = state => ({
+  message: state.messageReducer,
 });
 
 export default withReducer('messageReducer', messageReducer)(
   connect(
     mapStateToProps,
-    mapDispatchToProps
-  )(About)
+    { setMessage }
+  )(AboutPage)
 );

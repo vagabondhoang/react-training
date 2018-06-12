@@ -12,9 +12,7 @@ type Props = {
 
 class Counter extends Component<Props> {
   componentDidMount() {
-    setInterval(() => {
-      this.props.increment();
-    }, 500);
+    setInterval(this.props.increment, 500);
   }
 
   render() {
@@ -26,21 +24,9 @@ class Counter extends Component<Props> {
   }
 }
 
-<<<<<<< HEAD
 const mapStateToProps = state => ({ count: state.count.count });
-=======
-const mapStateToProps = state => ({
-  count: state.count.count,
-});
-
->>>>>>> using reselect with redux
-const mapDispatchToProps = (dispatch: Function) => ({
-  increment() {
-    dispatch(increment());
-  },
-});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { increment }
 )(Counter);
