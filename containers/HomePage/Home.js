@@ -16,6 +16,9 @@ const Home = () => (
     <Link to="/about">
       <HomeButton>Go about Page</HomeButton>
     </Link>
+    <Link to="/users">
+      <Button>Go Users Page</Button>
+    </Link>
     <h1>Reselect Redux</h1>
     <Posts />
     <Counter />

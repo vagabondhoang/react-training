@@ -1,14 +1,29 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
 import createReducer from './reducers/rootReducer';
 import RECEIVE_DATA from './types/data';
 import getPosts from './fakeData';
+import rootSaga from './rootSaga';
 
-const store = createStore(
-  createReducer(),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+/* saga middleware */
+const sagaMiddleware = createSagaMiddleware();
 
+const composeEnhancers =
+  process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        name: 'MyApp',
+        actionsBlacklist: ['REDUX_STORAGE_SAVE'],
+      })
+    : compose;
+
+const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
+
+const store = createStore(createReducer(), enhancer);
+
+sagaMiddleware.run(rootSaga);
+
+/* inject reducer */
 const initilizeStore = () => {
   store.asyncReducers = {};
   store.injectReducer = (key, reducer) => {
