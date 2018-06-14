@@ -20,7 +20,7 @@ export default class InputPreview extends React.PureComponent<Props> {
     const { value } = this.props;
     return (
       <div>
-        <input type="text" value={value} onChange={this.handleChange} />{' '}
+        <input type="text" value={value} onChange={this.handleChange} />
       </div>
     );
   }

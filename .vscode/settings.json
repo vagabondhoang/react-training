@@ -2,4 +2,10 @@
   "git.ignoreLimitWarning": true,
   "editor.tabSize": 2,
   "files.insertFinalNewline": true,
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": false,
 }
