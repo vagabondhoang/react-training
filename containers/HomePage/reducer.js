@@ -1,6 +1,6 @@
 // @flow
 
-import SET_MESSAGE from '../types/message';
+import SET_MESSAGE from './constants';
 
 const initState = {
   message: '',
@@ -15,7 +15,7 @@ export default (state: State = initState, action: Object): Object => {
     case SET_MESSAGE:
       return {
         ...state,
-        message: action.payload.message,
+        message: action.payload,
       };
     default:
       return state;
